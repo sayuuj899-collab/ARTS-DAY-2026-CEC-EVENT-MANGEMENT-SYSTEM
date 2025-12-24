@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Off-Stage Events</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #232526, #414345);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            padding: 40px 45px;
+            border-radius: 22px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        form {
+            display: grid;
+            gap: 16px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #e0f7fa;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .events {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .events label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .events input {
+            margin-right: 10px;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #ffccbc;
+            margin-top: 8px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #cfd8dc;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Off-Stage Event Registration</h1>
+
+    <form onsubmit="return validateEvents()">
+        <label>Enter Your Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Semester</label>
+        <select required>
+            <option value="">-- Select Semester --</option>
+            <option>S2</option>
+            <option>S4</option>
+            <option>S6</option>
+            <option>S8</option>
+        </select>
+
+        <label>Class</label>
+        <input type="text" placeholder="Eg: CSE A" required>
+
+        <label>Roll Number</label>
+        <input type="number" placeholder="Enter roll number" required>
+
+        <label>Select Off-Stage Events (Max 4)</label>
+        <div class="events">
+            <label><input type="checkbox" name="event"> Drawing</label>
+            <label><input type="checkbox" name="event"> Painting</label>
+            <label><input type="checkbox" name="event"> Photography</label>
+            <label><input type="checkbox" name="event"> Essay Writing</label>
+            <label><input type="checkbox" name="event"> Poetry Writing</label>
+            <label><input type="checkbox" name="event"> Poster Design</label>
+        </div>
+
+        <div class="note">
+            ⚠ You can select a maximum of 4 events only.
+        </div>
+
+        <button class="btn" type="submit">Register</button>
+    </form>
+
+    <footer>
+        © 2026 | CEC Arts Day Event System <br>
+        Created by <strong>SAYOOJRAM S</strong> –
+    </footer>
+</div>
+
+<script>
+    function validateEvents() {
+        const events = document.querySelectorAll('input[name="event"]:checked');
+        if (events.length > 4) {
+            alert("You can select only up to 4 off-stage events.");
+            return false;
+        }
+        alert("Registration successful!");
+        return true;
+    }
+</script>
+
+</body>
+</html>

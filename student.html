@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Page - Select Event</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            padding: 50px;
+            border-radius: 22px;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.18);
+            padding: 35px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #e0f7fa;
+        }
+
+        .offstage {
+            border: 2px solid #4caf50;
+        }
+
+        .onstage {
+            border: 2px solid #ff9800;
+        }
+
+        footer {
+            margin-top: 35px;
+            font-size: 13px;
+            color: #cfd8dc;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Select Your Event</h1>
+
+        <div class="events">
+            <div class="card offstage" onclick="goOffStage()">
+                <h2>🖌️ Off-Stage</h2>
+                <p>Drawing, writing, photography & more</p>
+            </div>
+
+            <div class="card onstage" onclick="goOnStage()">
+                <h2>🎤 On-Stage</h2>
+                <p>Dance, music, drama & live performances</p>
+            </div>
+        </div>
+
+        <footer>
+            © 2026 | CEC Arts Day Event System <br>
+            Created by <strong>SAYOOJRAM S</strong> – 7012188754
+        </footer>
+    </div>
+
+    <script>
+        function goOffStage() {
+            window.location.href = "offstage.html";
+        }
+
+        function goOnStage() {
+            window.location.href = "onstage.html";
+        }
+    </script>
+
+</body>
+</html>
